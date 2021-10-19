@@ -1,0 +1,34 @@
+scilla_version 0
+
+library TimeLockedWalletsStore
+
+type Error =
+| ErrorCannotUpdate
+
+contract TimeLockedWalletsStore(owner: ByStr20)
+
+(*
+  Map <ByStr20, (Map<ByStr20, ByStr20>) >
+  Ex: wallet_creator: { contract_addr: beneficiary }
+*)
+field wallet_info: Map ByStr20 (Map ByStr20 ByStr20) = Emp ByStr20 (Map ByStr20 ByStr20)
+
+procedure ThrowError(err: Error)
+  error_code = match err with
+      | ErrorCannotUpdate => Int32 -1
+    end;
+  e = { _exception : "Error"; code: error_code};
+  throw e
+end
+
+
+transition AddNewWallet(contract_addr: ByStr20, beneficiary: ByStr20)
+  kv <- wallet_info[_sender][contract_addr];
+  match kv with
+    | None =>
+        wallet_info[_sender][contract_addr] := beneficiary
+    | Some v =>
+        err = ErrorCannotUpdate;
+        ThrowError err
+  end
+end
