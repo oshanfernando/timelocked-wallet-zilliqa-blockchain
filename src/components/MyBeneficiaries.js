@@ -109,7 +109,7 @@ export default function MyBeneficiaries () {
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan='5'>
-                <CreateWallet/>
+                <CreateWallet statusCallback={statusCallback}/>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Footer>

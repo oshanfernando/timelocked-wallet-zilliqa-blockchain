@@ -120,6 +120,7 @@ export default function CreateWallet({statusCallback}) {
         console.log('***** Updating wallet store *****');
         const transID = await updateWalletStore(createdContract.ctAddress);
         const updateStoreReceipt = await pollReceipt(transID);
+        setLoading(false);
 
         if (updateStoreReceipt.success) {
           statusCallback({
@@ -138,7 +139,7 @@ export default function CreateWallet({statusCallback}) {
           msg: 'Failed to deploy new contract!!',
           positive: false });
       }
-      setLoading(false);
+      setOpen(false);
     }
 
   }

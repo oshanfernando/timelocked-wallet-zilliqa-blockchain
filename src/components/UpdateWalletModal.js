@@ -51,6 +51,7 @@ export default function UpdateWalletModal({contractAddr, statusCallback}) {
           positive: false });
       }
       setLoading(false);
+      setOpen(false);
     }
   }
 

@@ -40,6 +40,7 @@ export default function TopUpModal({contractAddr, statusCallback}) {
           positive: false });
       }
       setLoading(false);
+      setOpen(false);
     }
   }
 
