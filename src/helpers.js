@@ -2,13 +2,12 @@ import {VIEWBLOCK_URL} from "./constants";
 
 export const calculateNumBlocks = async (d1) => {
   const { result } = await window.zilPay.blockchain.getTxBlockRate();
-  const blockTime = 1 / result;
 
   const now = new Date();
   const millis =  d1 - now;
   const seconds = millis / 1000;
 
-  return (Math.ceil(seconds/blockTime))
+  return (Math.ceil(seconds * result))
 }
 
 export const getDateFromBlockNum = (blockNum, currentBlockNum, blockRate) => {

@@ -1,4 +1,5 @@
-export const WALLETSTORE_CONTRACT_ADDR = '0x291a62b8ee7c139b59fda1d4f08ea4916ff169d7';
+// export const WALLETSTORE_CONTRACT_ADDR = '0x291a62b8ee7c139b59fda1d4f08ea4916ff169d7';
+export const WALLETSTORE_CONTRACT_ADDR = '0x8eef1200ff9cdc06d6898d907c7fa9f983266eee';
 export const VIEWBLOCK_URL = 'https://viewblock.io/zilliqa/address/';
 
 export const scillaContractCode = `scilla_version 0
