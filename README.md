@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Time-Locked wallets on Zilliqa Blockchain
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an example of a time-locked wallet implementation using Scilla smart contracts on [Zilliqa](https://www.zilliqa.com/) blockchain.
 
-## Available Scripts
+The idea behind time-locked wallets is to lock the funds for a set period of time. The amount locked in the wallet can only withdrawn when the set date is passed and only by the authorized person/beneficiary.
 
-In the project directory, you can run:
 
-### `npm start`
+* The dApp allows users to create a time-locked wallet for a specific beneficiary, top up the wallet and change the unlock date as well. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Once the wallet is created, only the intended beneficiary is allowed access to the funds after the set unlock date has passed.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br>
 
-### `npm test`
+Checkout the [Medium article](https://medium.com/@oshan.fernando/building-a-time-locked-wallet-on-zilliqa-blockchain-part-1-400f5e253b05) for detailed explanation. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [ZilPay](https://zilpay.io/) wallet extension has to be installed
+* A TestNet wallet has to be created
+* The wallet should have some TestNet ZIL to pay for gas and to top-up the wallet. If you do not have TestNet ZIL, go to [this](https://dev-wallet.zilliqa.com/faucet) link and run the faucet to get some free ZIL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the application
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Deploy the [TimeLockedWalletsStore.scilla](/TimeLockedWalletsStore.scilla) to the Testnet using your wallet.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. In the [constants.js](/src/constants.js) file, change the **WALLETSTORE_CONTRACT_ADDR** to the address of your deployed smart contract.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br>
 
-## Learn More
+> You could also skip step 1 and 2 and test the project on Testnet as it is. The contract address at **WALLETSTORE_CONTRACT_ADDR** in the code is a valid contract address.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Install the dependencies
 
-### Code Splitting
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Start the development server
 
-### Analyzing the Bundle Size
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Demo
 
-### Making a Progressive Web App
+Website: https://timelocked-wallet-zilliqa-blockchain.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Walkthrough video:
 
-### Advanced Configuration
+  <a href="https://www.youtube.com/watch?v=5m5asIZn2ec" target="_blank">
+    <img src="https://img.youtube.com/vi/5m5asIZn2ec/0.jpg" alt="Watch the video" width="480" height="360" border="10" />
+  </a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
